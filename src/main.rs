@@ -8,6 +8,7 @@ fn main() {
         Problem2::new(),
         Problem3::new(),
         Problem4::new(),
+        Problem5::new(),
     ];
 
     for (index, problem) in problems.iter_mut().enumerate() {
