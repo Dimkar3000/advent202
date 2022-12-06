@@ -1,5 +1,3 @@
-use std::io;
-
 use crate::Problem;
 
 #[derive(Debug, Clone, Copy)]
@@ -20,7 +18,7 @@ impl Command {
 struct Crate(char);
 
 impl Crate {
-    fn new(input: &String) -> Option<Self> {
+    fn new(input: &str) -> Option<Self> {
         let input = input.trim();
         if let Some(c) = input.chars().nth(1) {
             return Some(Self(c));

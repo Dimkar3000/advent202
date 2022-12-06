@@ -11,7 +11,7 @@ impl Problem6 {
     }
 
     pub fn skeleton(input: &str, size: usize) -> String {
-        let mut result: Option<String> = None;
+        let mut result = "no result!".to_string();
         let mut current = String::new();
         input.chars().enumerate().any(|(index, next)| {
             current.push(next);
@@ -24,22 +24,23 @@ impl Problem6 {
             }
 
             if has_no_duplicate_letters(&current) {
-                result = Some((index + 1).to_string());
+                result = (index + 1).to_string();
                 return true;
             }
             false
         });
-        return result.unwrap();
+        result
     }
 }
 
 fn has_no_duplicate_letters(s: &str) -> bool {
-    let mut set = HashSet::new();
+    let mut found = [false; 26]; // all lower case letters in the input
     for c in s.chars() {
-        if set.contains(&c) {
+        let index = ((c as u8) - b'a') as usize;
+        if found[index] {
             return false;
         }
-        set.insert(c);
+        found[index] = true;
     }
     true
 }
