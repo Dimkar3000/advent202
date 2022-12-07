@@ -1,8 +1,5 @@
 use crate::Problem;
-use std::{
-    cmp::{max, min},
-    fmt::Display,
-};
+use std::cmp::{max, min};
 
 #[derive(Debug, Default, Clone, PartialEq)]
 struct File(String, usize);
@@ -25,7 +22,7 @@ impl Folder {
 
     fn add_folder_to_child(&mut self, path: &[&str], folder: &Folder) {
         let mut item = None;
-        if let Some(folder_name) = path.get(0) {
+        if let Some(folder_name) = path.first() {
             item = Some(folder_name.to_string())
         }
         if let Some(folder_name) = item {
@@ -40,10 +37,10 @@ impl Folder {
         }
     }
     fn add_file_to_child(&mut self, path: &[&str], file: &File) {
-        if let Some(folder_name) = path.get(0) {
+        if let Some(folder_name) = path.first() {
             for folder in &mut self.folders {
                 if folder.folder_name == *folder_name {
-                    folder.add_file_to_child(&path[1..].to_vec(), file);
+                    folder.add_file_to_child(&path[1..], file);
                     break;
                 }
             }
@@ -63,8 +60,10 @@ impl Problem7 {
         let mut lines = input.lines().peekable();
         let mut current_dir: Vec<&str> = Vec::new();
 
-        let mut root = Folder::default();
-        root.folder_name = "/".to_string();
+        let mut root = Folder {
+            folder_name: "/".to_string(),
+            ..Default::default()
+        };
 
         while let Some(line) = lines.next() {
             if line.starts_with('$') {
@@ -96,8 +95,10 @@ impl Problem7 {
                         let (p1, p2) = content.split_once(' ').unwrap();
                         if p1 == "dir" {
                             // Create Folder
-                            let mut folder = Folder::default();
-                            folder.folder_name = p2.to_string();
+                            let folder = Folder {
+                                folder_name: p2.to_string(),
+                                ..Default::default()
+                            };
                             root.add_folder_to_child(&current_dir, &folder);
                         } else {
                             // Create File
