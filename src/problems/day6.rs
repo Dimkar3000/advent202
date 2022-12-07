@@ -1,5 +1,3 @@
-use std::collections::HashSet;
-
 use crate::Problem;
 
 #[derive(Default, Debug)]
