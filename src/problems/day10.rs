@@ -80,8 +80,8 @@ pub struct Problem10 {
 }
 
 impl Problem10 {
-    pub fn new() -> Box<Self> {
-        Box::new(Self { cpu: CPU::new() })
+    pub fn new() -> Self {
+        Self { cpu: CPU::new() }
     }
 }
 

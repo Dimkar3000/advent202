@@ -8,8 +8,8 @@ pub struct Problem1 {
 }
 
 impl Problem1 {
-    pub fn new() -> Box<Self> {
-        Box::new(Self::default())
+    pub fn new() -> Self {
+        Self::default()
     }
 }
 

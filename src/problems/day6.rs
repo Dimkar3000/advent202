@@ -4,8 +4,8 @@ use crate::Problem;
 pub struct Problem6 {}
 
 impl Problem6 {
-    pub fn new() -> Box<Self> {
-        Box::new(Self::default())
+    pub fn new() -> Self {
+        Self::default()
     }
 
     pub fn skeleton(input: &str, size: usize) -> String {

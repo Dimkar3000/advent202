@@ -28,8 +28,8 @@ pub struct Problem4 {
 }
 
 impl Problem4 {
-    pub fn new() -> Box<Self> {
-        Box::new(Self { pairs: Vec::new() })
+    pub fn new() -> Self {
+        Self { pairs: Vec::new() }
     }
 
     fn skeleton(&self, callback: &dyn Fn((Elfe, Elfe)) -> bool) -> String {

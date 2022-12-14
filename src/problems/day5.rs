@@ -34,8 +34,8 @@ pub struct Problem5 {
 }
 
 impl Problem5 {
-    pub fn new() -> Box<Self> {
-        Box::new(Self::default())
+    pub fn new() -> Self {
+        Self::default()
     }
 
     fn process_state(&mut self, line: &str) {

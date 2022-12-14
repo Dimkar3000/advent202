@@ -12,8 +12,8 @@ pub struct Problem8 {
 }
 
 impl Problem8 {
-    pub fn new() -> Box<Self> {
-        Box::new(Self::default())
+    pub fn new() -> Self {
+        Self::default()
     }
 
     fn proccess_input(&mut self, input: &str) {

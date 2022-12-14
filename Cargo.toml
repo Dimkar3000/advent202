@@ -8,9 +8,11 @@ edition = "2021"
 [dependencies]
 rustfmt = "0.10.0"
 colored = "2.0.0"
+pathfinding = "4.0.0"
 
 [lib]
 name = "libadvent2022"
 
 [[bin]]
 name="advent2022"
+

@@ -68,8 +68,8 @@ impl Movement {
 }
 
 impl Problem9 {
-    pub fn new() -> Box<Self> {
-        Box::new(Self::default())
+    pub fn new() -> Self {
+        Self::default()
     }
 }
 

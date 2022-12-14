@@ -6,8 +6,8 @@ use crate::Problem;
 pub struct Problem3;
 
 impl Problem3 {
-    pub fn new() -> Box<Self> {
-        Box::new(Self::default())
+    pub fn new() -> Self {
+        Self::default()
     }
 
     fn process_group(input: &str) -> u32 {
